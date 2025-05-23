@@ -28,7 +28,12 @@ class Dadoos extends StatefulWidget {
 class _DadoosState extends State<Dadoos> {
   @override
   Widget build(BuildContext context) {
-  
+    void atualizarDado() {
+      setState(() {
+        numeroDadoEsquerdo = Random().nextInt(6) + 1;
+        numeroDadoDireito = Random().nextInt(6) + 1;
+      });
+    }
 
 
     return MaterialApp(
@@ -41,22 +46,24 @@ class _DadoosState extends State<Dadoos> {
               Expanded(
                 child: TextButton(
                   onPressed: () {setState(() {
-                    numeroDadoEsquerdo = Random().nextInt(6) + 1;
+                   atualizarDado();
                   });
                    
                   },
-                  child: Image.asset('imagens/dado$numeroDadoEsquerdo.png'),
+                  child: Image.asset('imagens/dado$numeroDadoDireito.png'),
+                 
                 ),
               ),
               Expanded(
                 child: TextButton(
                   onPressed: () {setState(() {
                    
-                    numeroDadoDireito = Random().nextInt(6) + 1;
+                    atualizarDado();
                   });
                 
                   },
-                  child: Image.asset('imagens/dado$numeroDadoDireito.png'),
+                  child: Image.asset('imagens/dado$numeroDadoEsquerdo.png'),
+                  
                 ),
               ),
             ],
